@@ -25,6 +25,27 @@ def add_list(list)
   file.close
 end
 
+#Crear un tercer método que además pueda recibir un color.
+# Agregar color de fondo a los párrafos.
+def add_color(color)
+  bg_color = "style= 'background_color:#{color}'"
+  file = File.open('index.html', 'r')
+  lines = file.readlines
+  new_lines = lines.map do |line|
+    if line[1] == 'p'
+      print line.split('<p')
+      line = '<p '+ bg_color + line.split('<p')[1]
+      else
+        line
+    end
+  end
+  file.close
+  file = File.open('index.html', 'w')
+  file.puts new_lines
+  file.close
+end
+
 create_index('Hola', 'Inmundo')
-ordered_list= %w[ele1 ele2 ele3 ele4]
+ordered_list = %w[lista1 lista2 lista3 asdfasdawa holo]
 add_list(ordered_list)
+add_color('green')
