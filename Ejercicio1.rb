@@ -44,7 +44,6 @@ def add_color(color)
   file.puts new_lines
   file.close
 end
-
 create_index('Hola', 'Inmundo')
 ordered_list = %w[lista1 lista2 lista3 asdfasdawa holo]
 add_list(ordered_list)
